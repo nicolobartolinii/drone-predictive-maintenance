@@ -1,4 +1,4 @@
-function [featureTable,outputTable] = diagnosticFeatures(inputData)
+function [featureTable,outputTable] = binaryROCRanking16F(inputData)
 %DIAGNOSTICFEATURES recreates results in Diagnostic Feature Designer.
 %
 % Input:

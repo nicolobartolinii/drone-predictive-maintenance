@@ -14,7 +14,7 @@ Il progetto si articola in tre fasi principali:
   Da questi segnali sincronizzati vengono estratte feature in dominio temporale (Mean, RMS, Deviazione Standard, Skewness, Kurtosis, Crest Factor, Peak Value) e in dominio frequenziale (Peak Frequency e Band Power). Le feature ottenute forniscono una rappresentazione numerica completa dello stato del drone per l’analisi dei guasti.
 
 - **Addestramento di tre classificatori:**
-  Con le feature estratte sono stati addestrati un classificatore binario, un classificatore multiclasse per tipo di guasto e un classificatore multiclasse per isolamento sul motore danneggiato. È stato poi addestrato anche un classificatore multiclasse che comprendesse sia il tipo di guasto che l'isolamento, in modo da effettuare un esperimento aggiuntivo che esplorasse maggiormente il comportamento dei modelli. Gli addestramenti sono stati eseguiti mediante il Classification Learner di MATLAV, tuttavia le sessioni non sono incluse completamente per evitare di superare i limiti imposti da GitHub per la bandwidth del repository.
+  Con le feature estratte sono stati addestrati un classificatore binario, un classificatore multiclasse per tipo di guasto e un classificatore multiclasse per isolamento sul motore danneggiato. È stato poi addestrato anche un classificatore multiclasse che comprendesse sia il tipo di guasto che l'isolamento, in modo da effettuare un esperimento aggiuntivo che esplorasse maggiormente il comportamento dei modelli. Gli addestramenti sono stati eseguiti mediante il Classification Learner di MATLAB.
 
 ## Struttura del Repository
 
@@ -27,8 +27,11 @@ Il progetto si articola in tre fasi principali:
 - **mergeSignals.m**  
   Funzione per allineare e fondere i segnali provenienti da sensori multipli (IMU e VIBE).
 
-- **Altri script e funzioni**  
-  File di supporto per il pre-processing e l'estrazione delle feature.
+- **Directory `dfd-functions`**  
+  Contiene i file rappresentativi delle sessioni del Diagnostic Feature Designer utilizzate per l'estrazione delle feature nei diversi casi di classificazione. Contiene anche un esempio di funzione rappresentante il ranking delle feature tramite uno dei metodi utilizzati (ROC).
+
+- **Directory `models-functions`**
+  Contiene i file rappresentativi dei migliori 19 classificatori addestrati, ognuno relativo a un obiettivo di classificazione con un numero di feature differente. La struttura del nome del file è standard. Considerando, ad esempio, il file `multi7QuadraticSVM16F.m`, questo indica il classificatore multiclasse a 7 classi (`multi7`) realizzato attraverso il modello Quadratic SVM addestrato con 16 feature (`16F`).
 
 ## Requisiti
 
@@ -38,5 +41,5 @@ Il progetto si articola in tre fasi principali:
 
 ## Autori
 
-- **Nicolò Bartolini**
-- **Nicola Picciafuoco**
+- **Nicolò Bartolini** (Matr. 1118768)
+- **Nicola Picciafuoco** (Matr. 1118755)
